@@ -15,25 +15,54 @@
     </div>
 
     <div id="grapharea">
-        <div class="area 1">
+        <div class="area one">
             <h2>Panel Title</h2>
             <div class="draw subarea">
+                <apexchart
+                    width="400"
+                    type="bar"
+                    :options="options"
+                    :series="series"
+                    height="200"
+                  ></apexchart>
             </div>
         </div>
-        <div class="area 2">
-            <h2>No data</h2>
-            <div class="data subarea"></div>
+        <div class="area two">
+            <h2>Data</h2>
+            <div class="data subarea">
+                  <table>
+                  </table>
+            </div>
         </div>    
     </div>
   </div>
 </template>
 
 <script>
+import VueApexCharts from "vue3-apexcharts";
 export default {
     name: 'GraphArea',
-  props: {
-    
-  }
+ components: {
+      apexchart: VueApexCharts,
+  },
+  data: function () {
+    return {
+      options: {
+        chart: {
+          id: "vuechart-example",
+        },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+        },
+      },
+      series: [
+        {
+          name: "series-1",
+          data: [30, 40, 45, 50, 2, 60, 70, 91],
+        },
+      ],
+    };
+  },
 }
 </script>
 
@@ -77,7 +106,41 @@ scroll-behavior: smooth;
 background-color: inherit;
 font-size: 0.8em;
 width: 100%;
-height: 50%;
+
+}
+.subarea{
+display: flex;
+justify-content: center;
+background: inherit;
+margin: 1.2em;
+}
+.one{
+height: 70%;
+}
+.two{
+height: 30%;
+overflow-y: visible;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px black; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:grey; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: grey;
+overflow-y: visible; 
 }
 .area h2{
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;

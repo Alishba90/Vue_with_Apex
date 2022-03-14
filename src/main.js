@@ -9,6 +9,7 @@ library.add(fab);
 import { far } from '@fortawesome/free-regular-svg-icons';
 library.add(far);
 import { dom } from "@fortawesome/fontawesome-svg-core";
+import VueApexCharts from "vue3-apexcharts";
 dom.watch();
 
 
@@ -16,3 +17,4 @@ dom.watch();
 const app=createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.mount('#app');
+app.use(VueApexCharts);
