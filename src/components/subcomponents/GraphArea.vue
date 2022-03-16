@@ -60,19 +60,42 @@ export default {
         },
 
       ],
+
     type:"bar",namechart:"Bar"
     };
+
   },
+
 mounted(){
+const data={
+value:this.series[0]['data'],
+label:this.options.xaxis.categories,
+}
+
+this.emitter.emit("displaydata",data)
+this.emitter.on("changingcolor",(value)=>{
+this.options.colors[0]=value;
+
+});
+this.emitter.on("changingvalues",(obj)=>{
+
+if(this.options.xaxis.categories.includes(obj.valx)){
+const n=this.options.xaxis.categories.indexOf(obj.valx);
+this.series[0]['data'][n]=obj.valy;
+}
+else{
+this.options.xaxis.categories.push(obj.valx);
+this.series[0]['data'].push(obj.valy);
+}
+})
 this.emitter.on("changing",(obj)=>{
   this.type=obj.charttype
 this.namechart=obj.chart
 
 });
-this.emitter.on("changingcolor",(value)=>{
-this.options.colors[0]=value;
 
-})
+
+
 }
 
 }
@@ -117,17 +140,18 @@ overflow-y: scroll;
 .area{
 background-color: inherit;
 font-size: 0.8em;
-width: 100%;
-
+width: auto;
 }
 .subarea{
 display: flex;
 justify-content: center;
 background: inherit;
 margin: 1em 0;
+width:auto;
 }
 .one{
 height: 90%;
+
 }
 
 .area h2{

@@ -25,6 +25,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: grey;
 overflow-y: visible; 
+
 }
 i{font-size: 1.5em;
 color:white;

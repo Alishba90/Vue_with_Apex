@@ -18,7 +18,7 @@
 
     <div class="dataheader">
 <h4>Data</h4>
-<button><i class="fa-solid fa-plus"></i></button>
+<button  @click="onChangevalue($event)"><i class="fa-solid fa-plus"></i></button>
     </div>
 <div class="dataheader">
 <h5>X-axis</h5>
@@ -26,8 +26,9 @@
 <h5>Y-axis</h5>
 </div>
     <div class="datainput">
-<input type="text" name="xvalue" value="Label" id="xvalue" class="innum"/>
-<input type="number" name="yvalue" value=0 id="yvalue" min="0" class="innum"/>
+<input type="text" v-model="xvalue"  id="xvalue" class="innum"  />
+<input type="number" v-model="yvalue"  id="yvalue" min="0" class="innum"  />
+
     </div>
 
     </div>
@@ -56,14 +57,28 @@ val:{
         { text: 'Scatter', value: 'scatter' }
       ],
 
-color: "rgb(50, 150, 150,0.5)",
+color: "#E91E63",
 
-xvalue:0,
+xvalue:"Label",
 yvalue:0
     }
   },
 
 methods:{
+
+onChangevalue(){
+
+const values={
+valx:this.xvalue,
+valy:this.yvalue,
+}
+this.xvalue="Label";
+this.yvalue=0;
+this.emitter.emit("changingvalues",values);
+
+},
+
+
 onChange(){
     
 this.val.charttype=this.val.selected;
