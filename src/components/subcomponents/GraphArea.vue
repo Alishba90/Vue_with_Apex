@@ -73,6 +73,7 @@ label:this.options.xaxis.categories,
 }
 
 this.emitter.emit("displaydata",data)
+
 this.emitter.on("changingcolor",(value)=>{
 this.options.colors[0]=value;
 
@@ -87,6 +88,12 @@ else{
 this.options.xaxis.categories.push(obj.valx);
 this.series[0]['data'].push(obj.valy);
 }
+const data={
+value:this.series[0]['data'],
+label:this.options.xaxis.categories,
+}
+
+this.emitter.emit("displaydata",data)
 })
 this.emitter.on("changing",(obj)=>{
   this.type=obj.charttype

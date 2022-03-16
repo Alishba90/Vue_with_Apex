@@ -11,6 +11,7 @@
           </tr>
           <tr>
 
+
             <th>Values:</th>
             <td v-for="item in this.valueke" :key="item">{{item}}</td>
         

@@ -183,4 +183,7 @@ background: inherit;
 padding: 0.7em;
 
 }
+button{
+cursor: pointer;
+}
 </style>
