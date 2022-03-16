@@ -17,29 +17,26 @@
     <div id="grapharea">
         <div class="area one">
             <h2>Panel Title</h2>
+
             <div class="draw subarea">
                 <apexchart
-                    width="400"
-                    type="bar"
+                    width="500"
+                    :type="type"
                     :options="options"
                     :series="series"
-                    height="200"
+                    height="270"
                   ></apexchart>
             </div>
+<h2 style="margin-top:-1.5em" >{{this.namechart}} chart</h2>
         </div>
-        <div class="area two">
-            <h2>Data</h2>
-            <div class="data subarea">
-                  <table>
-                  </table>
-            </div>
-        </div>    
+ 
     </div>
   </div>
 </template>
 
 <script>
 import VueApexCharts from "vue3-apexcharts";
+
 export default {
     name: 'GraphArea',
  components: {
@@ -54,26 +51,38 @@ export default {
         xaxis: {
           categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
         },
+      colors: [ '#E91E63']
       },
       series: [
         {
           name: "series-1",
           data: [30, 40, 45, 50, 2, 60, 70, 91],
         },
+
       ],
+    type:"bar",namechart:"Bar"
     };
   },
+mounted(){
+this.emitter.on("changing",(obj)=>{
+  this.type=obj.charttype
+this.namechart=obj.chart
+
+});
+this.emitter.on("changingcolor",(value)=>{
+this.options.colors[0]=value;
+
+})
+}
+
 }
 </script>
 
 <style>
-i{font-size: 1.5em;
-color:white;
 
-}
 #container{
-
-width: 75vw;
+    background-color:		#141414;
+width: 71.5vw;
 }
 #header{
 display: flex;
@@ -96,11 +105,14 @@ background-color: rgba(29, 28, 28, 0.877);
 margin-right: 0.5em;
 }
 #grapharea{
-height: 50vh;
+height: 53vh;
 width: 100%;
 background-color: rgb(27, 27, 27);
-margin: 1.2em;
+margin-left: 1.2em;
+margin-bottom: 0;
 scroll-behavior: smooth;
+overflow-y: scroll;
+
 }
 .area{
 background-color: inherit;
@@ -112,36 +124,12 @@ width: 100%;
 display: flex;
 justify-content: center;
 background: inherit;
-margin: 1.2em;
+margin: 1em 0;
 }
 .one{
-height: 70%;
-}
-.two{
-height: 30%;
-overflow-y: visible;
-}
-::-webkit-scrollbar {
-  width: 5px;
+height: 90%;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px black; 
-  border-radius: 10px;
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background:grey; 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: grey;
-overflow-y: visible; 
-}
 .area h2{
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 text-align: center;

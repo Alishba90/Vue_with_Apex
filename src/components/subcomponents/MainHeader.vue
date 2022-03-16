@@ -23,11 +23,12 @@ margin-left: 1em;
 margin-top: -0.2em;
 }
 #MainHeader{
-background-color: black;
+    background-color:		#141414;
 }
 div{
 display: flex;
 padding:2rem; 
+    background-color:		#141414;
 }
 
 .fa-arrow-left{

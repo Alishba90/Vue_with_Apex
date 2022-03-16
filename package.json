@@ -15,7 +15,12 @@
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "apexcharts": "^3.33.2",
     "core-js": "^3.8.3",
+    "mitt": "^3.0.0",
     "vue": "^3.2.13",
+    "vue-color-input": "^1.0.6",
+    "vue-color-kit": "^1.0.5",
+    "vue-native-color-picker": "^1.2.0",
+    "vue-numeric-input": "^2.0.0",
     "vue3-apexcharts": "^1.4.1"
   },
   "devDependencies": {

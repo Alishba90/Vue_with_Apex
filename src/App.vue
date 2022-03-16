@@ -1,6 +1,6 @@
 <template>
 
-  <MainTemplate msg=" "/>
+  <MainTemplate />
 </template>
 
 <script>

@@ -1,7 +1,90 @@
 *{
     margin: 0;
     padding: 0;
-    background-color:		#141414;
+
     color: white;
     font-family:Georgia, 'Times New Roman', Times, serif;
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px black; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background:grey; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: grey;
+overflow-y: visible; 
+}
+i{font-size: 1.5em;
+color:white;
+
+}
+
+.color-input.user .picker-popup-enter-from {
+    transform: translateY(-100%) scale(.1);
+}
+.color-input.user .picker-popup-leave-to {
+    transform: scale(3);
+}
+/* and if you want to change the durations as well */
+.color-input.user .picker-popup-enter-active,
+.color-input.user .picker-popup-leave-active {
+    transition: all .5s;
+}
+.color-input.user .box.active {
+    /* "outline" color */
+    background: #0f0f0f;
+}
+.color-input.user .box.active .inner {
+    /* different transition effect */
+    transform: scale(.9) rotate(90deg);
+}
+.color-input.user .box {
+    /* make clickable box a 100x100 circle */
+    width: 5em;
+    height: 5em;
+background-color: inherit;
+    border-radius: 50px;
+}
+.color-input.user .picker-popup {
+    /* dark mode for popup window */
+    background: #000;
+    color: #fbfbfb;
+    /* and make it wide */
+    width: 10em;
+    margin-left: 1em;
+}
+
+.color-input.user .slider {
+    /* thin out the sliders and make them wider */
+    height: 0.2em;
+    width: 92%;
+}
+.color-input.user .saturation-area {
+    /* bigger picking area */
+    height: 8em;
+
+}
+.color-input.user .slider-pointer {
+    /* make slider pointers square-ish and 10x10 */
+    border-radius: 50%;
+    width: 1em;
+    height: 1em;
+}
+.color-input.user .saturation-pointer {
+    /* increase saturation pointer size */
+    width: 1em;
+    height: 1em;
+}
+
