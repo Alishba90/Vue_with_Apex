@@ -1,23 +1,23 @@
 <template>
 <div style="    background-color:		#141414;padding-bottom:0.8em">
   <div id="container3">
-<h2>Data</h2>
-<div id="tablearea">
-<table>
-  <tr>
-    <th>Label:</th>
-    <td v-for="item in label" :key="item">{{item}}</td>
- 
-  </tr>
-  <tr>
+  <h2>Data</h2>
+    <div id="tablearea">
+      <table>
+          <tr>
+            <th>Labels:</th>
+            <td v-for="item in label" :key="item">{{item}}</td>
+        
+          </tr>
+          <tr>
 
-    <th>Value:</th>
-    <td v-for="item in this.valueke" :key="item">{{item}}</td>
- 
-  </tr>
-</table>
-</div>
-</div>
+            <th>Values:</th>
+            <td v-for="item in this.valueke" :key="item">{{item}}</td>
+        
+          </tr>
+      </table>
+    </div>
+  </div>
 </div>
 </template>
 
